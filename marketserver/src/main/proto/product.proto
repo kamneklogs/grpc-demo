@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.marketservices.grpc";
+
+service marketService{
+
+    rpc findById(id) returns (ProductObject){}
+
+    rpc getAll(Empty) returns (ProductsList){}
+}
+
+message ProductObject{ //We need to assign a unique identifier to each field
+    int32 id = 1; 
+    string name = 2;
+    string description = 3;
+}
+
+message id{
+    int32 id = 1;
+}
+
+
+message Empty{
+    
+}
+
+message ProductsList{
+    repeated ProductObject product = 1;
+}
