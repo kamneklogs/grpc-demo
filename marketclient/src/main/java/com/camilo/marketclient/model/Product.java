@@ -1,6 +1,4 @@
-package com.camilo.marketserver.model;
-
-import java.util.Random;
+package com.camilo.marketclient.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,18 +11,14 @@ public class Product {
     public Product() {
     }
 
-
     public Product(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
-
     @JsonCreator
     public Product(@JsonProperty("name") String name, @JsonProperty("description") String description) {
-        Random r = new Random();
-        this.id = r.nextInt(20000);
         this.name = name;
         this.description = description;
     }
@@ -53,5 +47,4 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-
 }
